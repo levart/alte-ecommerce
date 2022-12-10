@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+  .logo {
+    img {
+      height: 50px;
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    a{
+      text-decoration: none;
+      color: #1a9fbc;
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
+}

@@ -1,0 +1,25 @@
+<header>
+  <a class="logo" routerLink="/">
+    <img src="/assets/images/logo.png">
+  </a>
+  <div class="nav">
+    <div>
+      <a routerLink="/products">Products</a>
+    </div>
+    <ng-container *ngIf="authService.isAuth; else notAuth">
+      <a routerLink="/cart">Cart <span class="badge bg-secondary">{{cartCount}}</span></a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ authService.email }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" routerLink="/content-manager/product-manager" >Product manager</a></li>
+          <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </ng-container>
+    <ng-template #notAuth>
+      <a href="" routerLink="/auth/register">Register</a>
+    </ng-template>
+  </div>
+</header>
