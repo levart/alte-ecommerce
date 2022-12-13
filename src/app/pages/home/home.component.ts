@@ -9,7 +9,7 @@ import {Product} from "../../core/interfaces/product";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  products$: Observable<Product[]> = this.productsService.getProducts()
+  products$: Observable<Product[]> = this.productsService.getDate()
 
   constructor(
     private productsService: ProductsService,

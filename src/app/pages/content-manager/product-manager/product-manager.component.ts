@@ -9,18 +9,18 @@ import {Observable, Subject, takeUntil} from "rxjs";
   styleUrls: ['./product-manager.component.scss']
 })
 export class ProductManagerComponent implements  OnDestroy {
-  products$: Observable<Product[]> = this.productsService.getProducts()
+  products$: Observable<Product[]> = this.productsService.getDate()
 
   sub$ = new Subject()
   constructor(
     private productsService: ProductsService,
   ) { }
 
-  deleteProduct(id: string) {
-    this.productsService.delete(id)
+  deleteProduct(id: string | undefined) {
+    id && this.productsService.delete(id)
       .pipe(takeUntil(this.sub$))
       .subscribe(() => {
-        this.products$ = this.productsService.getProducts()
+        this.products$ = this.productsService.getDate()
       })
   }
 

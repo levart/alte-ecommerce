@@ -7,6 +7,21 @@
       >
     </div>
     <div class="mb-3">
+      <label for="title" class="form-label">Category</label>
+      <select class="form-select" aria-label="Default select example"
+              [ngModel]="categoryId"
+              [ngModelOptions]="{standalone: true}"
+              (ngModelChange)="categoryChanged($event)"
+
+      >
+        <ng-container *ngIf="categories$ | async as categories">
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{category.title}}
+        </option>
+        </ng-container>
+      </select>
+    </div>
+    <div class="mb-3">
       <label for="price" class="form-label">Price</label>
       <input type="number" class="form-control" id="price" placeholder="Price"
              formControlName="price"

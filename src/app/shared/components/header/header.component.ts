@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../core/services";
 import {CartService} from "../../../core/services/cart.service";
+import {reduce} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -20,9 +21,13 @@ export class HeaderComponent implements OnInit {
   }
 
   getCartCount() {
-    this.cartService.carts$.subscribe(cart => {
-      if (cart) {
-        this.cartCount = cart.length
+    this.cartService.carts$
+      .subscribe(carts => {
+        console.log(carts)
+      if (carts) {
+        this.cartCount = carts.reduce((acc: any, item: any) => {
+          return acc + item.quantity
+        },0)
       }
     })
   }

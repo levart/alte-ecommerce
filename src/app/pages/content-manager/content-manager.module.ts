@@ -1,21 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ContentManagerRoutingModule } from './content-manager-routing.module';
-import { ProductManagerComponent } from './product-manager/product-manager.component';
-import { ProductAddEditComponent } from './product-manager/components/product-add-edit/product-add-edit.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ContentManagerRoutingModule} from './content-manager-routing.module';
+import {ContentManagerComponent} from './content-manager.component';
 
 
 @NgModule({
   declarations: [
-    ProductManagerComponent,
-    ProductAddEditComponent
+    ContentManagerComponent
   ],
   imports: [
     CommonModule,
-    ContentManagerRoutingModule,
-    ReactiveFormsModule
+    ContentManagerRoutingModule
   ]
 })
-export class ContentManagerModule { }
+export class ContentManagerModule {
+}
